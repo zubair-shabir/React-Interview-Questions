@@ -10,7 +10,7 @@ function App() {
   ];
   return (
     <>
-      <h1 className="text-4xl text-white text-center">
+      <h1 className="text-4xl text-white text-center mt-10">
         React Interview Assessment
       </h1>
 
@@ -18,7 +18,11 @@ function App() {
         {projects &&
           projects.map(({ name, route }) => {
             return (
-              <Link to={route} key={route} className="bg-gray-700 rounded-lg p-5">
+              <Link
+                to={route}
+                key={route}
+                className="bg-gray-700 rounded-lg p-5"
+              >
                 {name}
               </Link>
             );
