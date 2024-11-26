@@ -18,3 +18,7 @@
 .lightButton {
   color: #fff;
 }
+
+input {
+  @apply text-black  p-4 rounded-lg border border-[#333];
+}

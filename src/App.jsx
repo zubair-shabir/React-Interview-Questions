@@ -7,6 +7,10 @@ function App() {
       name: "Pagination Assessment",
       route: "/pagination",
     },
+    {
+      name: "Todo Assessment",
+      route: "/todo",
+    },
   ];
   return (
     <>

@@ -6,6 +6,9 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layout/Layout.jsx";
 import { ThemeProvider } from "./ThemeContext/ThemeContext.jsx";
+import { Provider } from "react-redux";
+import { store } from "./store/store.js";
+import Todo from "./Todo/Todo.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,14 +23,20 @@ const router = createBrowserRouter([
         path: "/pagination",
         element: <Pagination />,
       },
+      {
+        path: "/todo",
+        element: <Todo />,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </Provider>
   </StrictMode>
 );
