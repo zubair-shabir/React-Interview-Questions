@@ -1,28 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import ThemeContext from "../ThemeContext/ThemeContext";
+import { IoMoon } from "react-icons/io5";
+import { FaSun } from "react-icons/fa";
+import { IoMdHome } from "react-icons/io";
 
 const Layout = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <>
-    <Link to="/">
-    
-      <span className="fixed bottom-3 right-3   rounded-full bg-gray-700 p-3">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          x="0px"
-          y="0px"
-          width="40"
-          height="40"
-          viewBox="0 0 24 24"
+      <div
+        className={`${theme === "dark" ? "darkTheme" : "LightTheme"} h-full `}
+      >
+        <div
+          className={`fixed top-5 right-5 z-10  text-4xl   rounded-full  p-3 cursor-pointer ${
+            theme === "dark" ? "lightButton" : "darkButton"
+          }`}
+          onClick={toggleTheme}
         >
-          <path
-            fill="#fff"
-            d="M 12 2.0996094 L 1 12 L 4 12 L 4 21 L 11 21 L 11 15 L 13 15 L 13 21 L 20 21 L 20 12 L 23 12 L 12 2.0996094 z M 12 4.7910156 L 18 10.191406 L 18 11 L 18 19 L 15 19 L 15 13 L 9 13 L 9 19 L 6 19 L 6 10.191406 L 12 4.7910156 z"
-          ></path>
-        </svg>
-      </span>
-      </Link>
-      <Outlet />
+          {theme === "dark" ? <FaSun /> : <IoMoon />}
+        </div>
+        <Link to="/">
+          <span
+            className={`fixed bottom-3 right-3 text-4xl rounded-full  p-3 cursor-pointer ${
+              theme === "dark" ? "lightButton" : "darkButton"
+            }`}
+          >
+            <IoMdHome />
+          </span>
+        </Link>
+        <Outlet />
+      </div>
     </>
   );
 };

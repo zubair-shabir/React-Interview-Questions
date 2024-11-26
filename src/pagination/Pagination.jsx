@@ -68,7 +68,7 @@ const Pagination = () => {
             onClick={() => selectPagehandler(page + 1)}
             className={page < totalPages ? "" : "pagination__disable"}
           >
-             ▶
+            ▶
           </span>
         </div>
       )}
